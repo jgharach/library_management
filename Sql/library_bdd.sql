@@ -1,0 +1,21 @@
+CREATE TABLE student(
+    ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Nom CHAR(20),
+    Prenom CHAR(20) 
+);  
+
+CREATE TABLE book(
+    ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Titre CHAR(38),
+    Auteur CHAR(40),
+    Qte INT
+);
+           
+
+CREATE TABLE Book_Issue(
+    B_ID INT, 
+    S_ID INT,
+    PRIMARY KEY (B_ID, S_ID),
+    FOREIGN KEY (S_ID) REFERENCES student(ID),
+    FOREIGN KEY (B_ID) REFERENCES book(ID)
+);
